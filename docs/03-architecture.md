@@ -1,6 +1,6 @@
 # AVS technical architecture and product design
 
-Version 0.2 · Proposed implementation baseline · 24 November 2026
+Version 0.3 · Proposed implementation baseline · 24 November 2026
 
 ## 1. Recommended architecture
 
@@ -55,34 +55,23 @@ Proposed initial qualification target: Ubuntu Server 24.04 LTS, x86-64. Record t
 
 ## 4. Deployment and component boundaries
 
-```mermaid
-flowchart TB
-  U["Operator / reviewer browser"]
-  S["Approved vendor sources; optional NVD / KEV"]
-  N["Authorized NetScaler 14.1 management endpoints"]
-  B["Encrypted off-host backup destination"]
-  subgraph VM["Dedicated Linux VM / Docker Compose"]
-    W["avs-web: TLS, static UI and API proxy"]
-    A["avs-api: identity and workflows"]
-    J["avs-worker: import, evaluate and export"]
-    C["avs-collector: optional read-only discovery"]
-    D[("PostgreSQL: records, jobs and audit")]
-    F[("Evidence volume: finalized artifacts")]
-    O["Host maintenance: backup, restore and updates"]
-  end
-  U -->|"HTTPS 443"| W
-  W --> A
-  A --> D
-  J --> D
-  C --> D
-  J --> F
-  A -->|"authorized download"| F
-  J -->|"allowlisted HTTPS"| S
-  C -->|"verified TLS and restricted identity"| N
-  O --> D
-  O --> F
-  O --> B
-```
+### Azure landing-zone placement
+
+![AVS Azure landing-zone reference design](diagrams/avs-azure-landing-zone.png)
+
+[Open scalable SVG](diagrams/avs-azure-landing-zone.svg) · [Open high-resolution PNG](diagrams/avs-azure-landing-zone.png)
+
+This is an optional Azure hosting reference for the same Linux product. Place AVS in an internal Corp workload subscription and a spoke virtual network, using existing platform connectivity where available. The hub supplies VPN connectivity, inspected routing and administrative access. The AVS VM has no public IP; PostgreSQL, evidence and protected secret files remain local to the VM. Azure Storage is the proposed off-host backup destination in this variant. The local deployment remains supported without these Azure services.
+
+The reference uses an illustrative spoke address space of `10.40.0.0/24`, workload subnet `snet-avs` at `10.40.0.0/27`, and private-endpoint subnet `snet-pe` at `10.40.0.32/27`. Replace these with approved, non-overlapping ranges. The Blob private endpoint resides in the spoke; the storage account is a separate Azure resource. Link the Blob private DNS zone and disable storage public network access explicitly. Peering, gateway transit, UDRs and return routes require platform-team design; a default route alone may not override learned hybrid routes. See the [diagram design notes and flow matrix](diagrams/README.md).
+
+### Linux VM and container boundaries
+
+![AVS Linux VM and container boundaries](diagrams/avs-linux-components.png)
+
+[Open scalable SVG](diagrams/avs-linux-components.svg) · [Open high-resolution PNG](diagrams/avs-linux-components.png)
+
+Azure resources use Microsoft's official architecture icons. Local containers use component cards so local PostgreSQL is not confused with Azure Database for PostgreSQL. Host maintenance runs outside the containers. Editable diagram sources, icon provenance and regeneration instructions are in the [diagram package](diagrams/README.md).
 
 The arrows represent permitted logical flows. Container network membership does not enforce destination restrictions by itself; use host and upstream firewall rules. In disconnected mode, import reviewed files and optionally leave collection disabled.
 

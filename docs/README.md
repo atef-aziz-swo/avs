@@ -8,6 +8,7 @@ AVS helps operators assess appliance exposure across products and versions, eval
 | [Charter](01-charter.md) | Why build it, who owns it, and when do we stop? |
 | [Product requirements](02-product-requirements.md) | What can operators do and how will we measure success? |
 | [Technical architecture and product design](03-architecture.md) | How will the Linux product, UI, containers, adapters and recovery work? |
+| [Architecture diagrams](diagrams/README.md) | What are the Azure landing-zone and Linux runtime boundaries? |
 | [Security and governance](04-security.md) | How are evidence, credentials, and changes controlled? |
 | [Delivery and backlog](05-delivery.md) | What should the team implement first? |
 | [Verification plan](06-verification.md) | What evidence supports each release decision? |
