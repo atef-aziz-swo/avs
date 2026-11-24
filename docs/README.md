@@ -7,7 +7,7 @@ AVS helps operators assess appliance exposure across products and versions, eval
 |---|---|
 | [Charter](01-charter.md) | Why build it, who owns it, and when do we stop? |
 | [Product requirements](02-product-requirements.md) | What can operators do and how will we measure success? |
-| [Technical architecture](03-architecture.md) | What are the boundaries, interfaces, and data contracts? |
+| [Technical architecture and product design](03-architecture.md) | How will the Linux product, UI, containers, adapters and recovery work? |
 | [Security and governance](04-security.md) | How are evidence, credentials, and changes controlled? |
 | [Delivery and backlog](05-delivery.md) | What should the team implement first? |
 | [Verification plan](06-verification.md) | What evidence supports each release decision? |
@@ -15,4 +15,4 @@ AVS helps operators assess appliance exposure across products and versions, eval
 | [Decision and risk registers](08-registers.md) | Who resolves the open decisions and risks? |
 | [Coverage and expansion policy](09-coverage.md) | Which products, versions and capabilities can be claimed as supported? |
 
-Source: AVS_Product_Concept.docx v0.1. The referenced repository is [mayoit/avs](https://github.com/mayoit/avs). Repository access and the Windows checkout could not be verified. This package assumes no existing layout or CI provider. Review for path conflicts before importing these files. References for kickoff verification include [NetScaler documentation](https://docs.netscaler.com/), [NVD](https://nvd.nist.gov/), and [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog). Product thresholds, estimates, and technology choices below are proposals.
+Source: AVS_Product_Concept.docx v0.1. The referenced repository is [mayoit/avs](https://github.com/mayoit/avs). The Windows checkout and origin/master push were verified during documentation work. The repository currently contains documentation; implementation and CI selection remain pending. References for kickoff verification include [NetScaler documentation](https://docs.netscaler.com/), [NVD](https://nvd.nist.gov/), and [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog). Product thresholds, estimates, and technology choices below are proposals.

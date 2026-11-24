@@ -9,6 +9,7 @@
 | D-05 Hosting and model | Choose hosting after data residency and cost review. Model use is optional | Architect | Before shared deployment |
 | D-06 Pilot authority | Establish environment, approval roles, change window and support path | Appliance owner | M4 |
 | D-07 Expansion selection | Select exact additional NetScaler trains and other vendor products using demand, lifecycle evidence, lab access and maintenance capacity | Product owner | Before expansion planning |
+| D-08 Local Linux product baseline | Dedicated Linux VM and Docker Compose first; qualify exact versions, identity, backup destination and sizing; re-estimate packaged UI and operations scope | Architect / delivery lead | Before packaged release commitment |
 
 | Risk | Level | Owner | Trigger and response |
 |---|---|---|---|
@@ -23,3 +24,10 @@
 | Sensitive data leakage | High | Security reviewer | Redaction or access check fails. Stop data flow and use the incident process. |
 
 Initial assumptions are access to legally authorized 14.1 lab devices, vendor material for the corpus, and an operator who can review build and feature semantics. Commercial demand, additional product/version selection, vendor lifecycle status, vendor endpoint coverage, and lab topology are open. Each expansion requires its own authorized fixtures or lab access and a maintenance owner. Record decision date, approver, rationale and linked evidence when closing each item.
+
+## Accepted baseline decisions
+
+| ID | Decision | Date / approver | Rationale and evidence |
+|---|---|---|---|
+| D-09 Initial secret storage | Protected local files, restricted read-only service mounts, encrypted host storage and backups; optional vault integration later | 24 November 2026 / project requester | Start with a local deployment without a vault dependency. Explicitly confirmed in this conversation; see [security baseline](04-security.md) and [architecture section 9](03-architecture.md#9-network-identity-and-secrets). |
+| D-10 Initial approval mechanism | Authenticated, authorized and audited reviewer decisions bound to immutable digest, asset scope and expiry; cryptographic approval signing later | 24 November 2026 / project requester | Requester accepted the review proposal to distinguish application approval from cryptographic signatures. See [PR-06](02-product-requirements.md) and [security baseline](04-security.md). Release-package signatures remain separate. |

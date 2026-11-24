@@ -11,6 +11,8 @@ Select ten historical NetScaler 14.1 vendor advisories before testing. Record se
 | Configuration | Vendor-supported configuration and expected bound scope using approved lab examples | Before/after snapshot and control contract results |
 | Legitimate workflows | Product-specific critical workflows; for Gateway include login, MFA where enabled, resource enumeration, launch, reconnect and logout; include HA failover where supported | Scenario matrix by profile, observed failures and comparison with baseline |
 | Lifecycle | Expired or changed approval, tampered evidence, drift, rejected change, recovery | State transition and recovery record |
+| Approval authorization | Unauthenticated or unauthorized reviewer, changed digest or scope, revoked/expired approval and missing audit fields | Rejected invalid approval and recorded reviewer identity, explicit decision, timestamp and reason for a valid approval |
+| Local secret storage | Host/container file permissions, read-only service mounts, credential rotation and export/log redaction | Only intended service identities can read mounted secrets; backups are encrypted; credentials absent from reports and logs |
 
 Run comparable manual and AVS-assisted assessment sessions on paired cases and document start/stop criteria, analyst and elapsed time. Report median times with sample count and limitations. Record available SLA and baseline session impact criteria before lab changes. Track evidence by revision, appliance profile, time, outcome, and reviewer. Report any excluded scenario with rationale.
 

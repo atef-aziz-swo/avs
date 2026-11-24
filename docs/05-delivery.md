@@ -1,6 +1,6 @@
 # Delivery plan and starter backlog
 
-Proposed planning assumption: one engineer with part-time architecture, security and appliance-owner support. Estimates are elapsed ranges after entry dependencies are met and cover the first NetScaler 14.1 validation target. Additional products and versions require separate estimates and maintenance capacity.
+Proposed planning assumption: one engineer with part-time architecture, security and appliance-owner support. Estimates are elapsed ranges after entry dependencies are met and cover the first NetScaler 14.1 validation target. Additional products and versions require separate estimates and maintenance capacity. The [Linux product architecture](03-architecture.md) adds a browser interface and packaged deployment/recovery requirements; estimate AVS-14 through AVS-17 separately and revise this baseline before promising the packaged release date.
 
 | Milestone | Estimate | Exit |
 |---|---|---|
@@ -25,6 +25,10 @@ Proposed planning assumption: one engineer with part-time architecture, security
 | AVS-11 Coverage matrix and adapter contract | Architect | AVS-02 | Define product adapter interfaces, capability gates and unmatched-product indeterminate behavior. P0 |
 | AVS-12 Additional NetScaler release train | Engineer | AVS-11, 05 | Select a train through D-07 and pass its assessment corpus; gate discovery and controls separately. P2 |
 | AVS-13 First additional vendor product | Engineer | AVS-11, 05 | Select a product through D-07, implement its adapter and publish reviewed capability evidence and limits. P2 |
+| AVS-14 Linux deployment package | Engineer | AVS-05, 11 | Pin image set; verify fresh VM installation, offline image import, restricted networks and boot recovery. Estimate separately. P1 |
+| AVS-15 Browser review and identity | Engineer | AVS-05 | Implement asset/advisory/assessment/report workflows, named local accounts, OIDC integration and server-side role checks. Estimate separately. P1 |
+| AVS-16 Durable jobs and evidence storage | Engineer | AVS-02 | Verify leased job recovery, idempotent completion, immutable revisions and artifact integrity. Required for packaged release. Estimate separately. P1 |
+| AVS-17 Backup, restore and upgrades | Engineer | AVS-14, 16 | Rehearse coordinated off-host backup, isolated restore and previous-release recovery; measure recovery targets. Estimate separately. P1 |
 
 **Sprint 1 demo.** Run a local fixture through intake, applicability and export. Show a build boundary, a missing input and an advisory revision. Commit schemas, examples and operations notes alongside implementation.
 
