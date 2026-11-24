@@ -19,14 +19,14 @@ flowchart TD
 
 | Entity | Minimum contract |
 |---|---|
-| AdvisoryRevision | Source URL, advisory and CVE IDs, retrieved time, revision hash, affected builds with source precedence, documented options |
-| ApplianceSnapshot | Asset pseudonym, build, relevant feature flags, profile, HA metadata, source and observed time |
+| AdvisoryRevision | Source URL, advisory and CVE IDs, retrieved time, revision hash, vendor/product identity, affected release trains and builds with source precedence, documented options |
+| ApplianceSnapshot | Asset pseudonym, vendor, product, release train, build, relevant feature flags, profile, HA metadata, source and observed time |
 | Assessment | Advisory revision ID, snapshot ID, evaluator version, outcome, reason codes and missing fields |
-| ControlRevision | Vendor reference, control catalog ID, target profile, typed parameters, prerequisites, expiry and digest |
+| ControlRevision | Vendor reference, control catalog ID, vendor/product and version constraints, target profile, typed parameters, prerequisites, expiry and digest |
 | EvidenceRun | Control or assessment revision, fixture ID, environment, timestamp, scenario results and artifact digest |
 | Approval / change record | Reviewer, operator, approved digest, target scope, change ticket, timestamps and outcome |
 
-Treat advisory text and imported inventory as untrusted data. Preserve source provenance and validate schemas at ingest. Compare NetScaler builds with vendor-aware version handling and boundary fixtures. Make repeat processing idempotent on source identity and content digest. Persist assessment inputs so a reviewer can reconstruct the original result. Serialize any future authorized change per appliance pair and reconcile observed state after ambiguous failures.
+Treat advisory text and imported inventory as untrusted data. Preserve source provenance and validate schemas at ingest. Dispatch through a versioned product adapter registry using normalized vendor and product identity. Each adapter owns advisory mapping, version comparison, feature semantics, discovery and control catalog bindings. Compare builds with product-specific version handling and boundary fixtures; do not assume shared ordering across vendors or release trains. Include adapter revision and coverage matrix row in assessment inputs and exports. Unknown or unvalidated combinations produce indeterminate. Make repeat processing idempotent on source identity and content digest. Persist assessment inputs so a reviewer can reconstruct the original result. Serialize any future authorized change per appliance pair and reconcile observed state after ambiguous failures.
 
 **Read-only collector.** Isolate management connectivity. Version the adapter by supported build train, set bounded timeouts and retries for reads, and distinguish permission failures, unsupported capabilities and incomplete collection. Verify exact read endpoints, roles, licensing and HA semantics against vendor documentation and lab devices before implementation. Offline inputs use the same normalized contract.
 

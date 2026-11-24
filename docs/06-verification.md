@@ -1,14 +1,15 @@
 # Verification and release evidence
 
-Select ten historical NetScaler 14.1 vendor advisories before testing. Record selection rationale, versions, appliance profiles, expected applicability and the presence or absence of a documented workaround. Include out-of-scope and ambiguous inputs. Have an appliance operator independently label expected results and adjudicate differences with the security reviewer.
+Select ten historical NetScaler 14.1 vendor advisories before testing. Record selection rationale, versions, appliance profiles, expected applicability and the presence or absence of a documented workaround. For every additional product or release train, approve a separate representative corpus before implementation and report results per coverage matrix row. Include out-of-scope and ambiguous inputs. Have an appliance operator independently label expected results and adjudicate differences with the security reviewer.
 
 | Suite | Key cases | Release evidence |
 |---|---|---|
 | Import | Duplicate, revision, malformed input, stale feed | Versioned provenance and deterministic replay |
 | Applicability | Build boundaries, differing features, unsupported train, missing or conflicting evidence | Expected result and rationale per fixture |
+| Product isolation | Overlapping build strings, unknown vendor/product, unvalidated versions and mismatched control catalogs | Correct adapter selection; no cross-product rules or control reuse; indeterminate for unvalidated coverage |
 | Collector | Correct role, denied writes, permissions, timeouts, partial fields, HA inventory | Device parity sample and failure records |
 | Configuration | Vendor-supported configuration and expected bound scope using approved lab examples | Before/after snapshot and control contract results |
-| Legitimate workflows | Login, MFA where enabled, resource enumeration, launch, reconnect, logout, and HA failover where supported | Scenario matrix by profile, observed failures and comparison with baseline |
+| Legitimate workflows | Product-specific critical workflows; for Gateway include login, MFA where enabled, resource enumeration, launch, reconnect and logout; include HA failover where supported | Scenario matrix by profile, observed failures and comparison with baseline |
 | Lifecycle | Expired or changed approval, tampered evidence, drift, rejected change, recovery | State transition and recovery record |
 
 Run comparable manual and AVS-assisted assessment sessions on paired cases and document start/stop criteria, analyst and elapsed time. Report median times with sample count and limitations. Record available SLA and baseline session impact criteria before lab changes. Track evidence by revision, appliance profile, time, outcome, and reviewer. Report any excluded scenario with rationale.

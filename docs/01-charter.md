@@ -1,10 +1,14 @@
 # Project charter
 
-**Problem.** Infrastructure teams may face a gap between a NetScaler advisory and a verified firmware upgrade. Manual applicability assessment and change preparation consume part of that interval.
+**Problem.** Infrastructure teams may face a gap between a vendor security advisory and a verified patch across their network and security appliances. Manual applicability assessment and change preparation consume part of that interval.
 
-**Outcome.** Give a NetScaler operator a timestamped, traceable assessment and enough evidence to decide whether a vendor-supported temporary control warrants a controlled change. Continue tracking the vendor patch as the permanent remediation.
+**Outcome.** Give an appliance operator a timestamped, traceable assessment and enough evidence to decide whether a vendor-supported temporary control warrants a controlled change. Continue tracking the vendor patch as the permanent remediation.
 
-**Scope.** NetScaler ADC and Gateway 14.1. Initial release covers advisory normalization, sanitized inventory, applicability, documented mitigation options, and evidence reports. A separately gated lab increment covers evaluation of approved control configurations with synthetic traffic and rollback rehearsal. A production pilot requires a new release decision. Multi-vendor support, firmware modifications, inline proxying, and kernel integrations are deferred.
+**Initial release.** NetScaler ADC and Gateway 14.1 only. Additional versions and products are later increments with separate selection, estimates and validation.
+
+**Platform direction.** A shared assessment and evidence platform for multiple appliance products and versions, introduced through independently validated adapters. NetScaler ADC and Gateway 14.1 remain the first validation target. Additional NetScaler release trains follow, then selected ADC, remote-access gateway, firewall or WAF products from other vendors. These are roadmap categories; exact products and versions require selection and evidence before any support claim. See the [coverage and expansion policy](09-coverage.md).
+
+The initial release covers advisory normalization, sanitized inventory, applicability, documented mitigation options, and evidence reports. A separately gated lab increment covers evaluation of approved control configurations with synthetic traffic and rollback rehearsal. Each product has separate discovery, control and pilot gates. A production pilot requires a new release decision. Firmware modifications, inline proxying, and kernel integrations are deferred.
 
 | Accountable role | Responsibility |
 |---|---|

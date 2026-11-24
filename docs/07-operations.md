@@ -2,7 +2,9 @@
 
 **Offline and read-only operation.** Monitor feed freshness, collection age and errors, unclassified builds, evaluation failures and outstanding evidence reviews. Record the last successful refresh per source or asset. On failure, keep the last valid snapshot, show its age and prevent stale records from qualifying for a change.
 
-**Before a pilot change.** Link the vendor advisory, verified asset build and profile, approved control revision, ticket, backup reference, expiry, health baseline, and named operator. Confirm HA health and recovery access with the appliance owner. Ensure vendor-supported sequencing and an approved window. Pause if build, policy binding, role, or health differs from approved evidence.
+**Coverage health.** Track freshness and adapter failures by product, release train and capability. Suspend affected matrix rows when evidence becomes stale or vendor/API changes invalidate assumptions. Revalidate before restoring capability claims.
+
+**Before a pilot change.** Link the vendor advisory, verified vendor, product, release train, asset build and profile, validated coverage row, approved control revision, ticket, backup reference, expiry, health baseline, and named operator. Confirm HA health and recovery access with the appliance owner. Ensure vendor-supported sequencing and an approved window. Pause if build, policy binding, role, or health differs from approved evidence.
 
 **During the window.** Have the operator apply the approved scoped change in the agreed sequence. Observe appliance health, HA state, management access, and designated user workflows before expanding scope. Stop on failed checks, unexpected drift, lost telemetry, unanticipated policy matches or session impairment.
 

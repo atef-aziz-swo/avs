@@ -7,6 +7,7 @@
 | Tampered or replayed approval | Bind approval and signature to immutable digest, appliance scope and expiry. Verify signer authorization and reject mismatches. Record approvals, revocations and changes in append-only audit history. |
 | Unauthorized management access | Deny public management ingress, restrict management routes, use read-only access first and audit privilege assignments. Validate separately scoped credentials in lab. |
 | Stale inputs or configuration drift | Record freshness and compare observed state with the approved snapshot. Pause changes and require review after meaningful drift. |
+| Cross-product rule or control selection | Bind rules, controls and approvals to vendor, product, version constraints and profile. Reject mismatches and test adapter isolation. |
 | HA or availability regression | Rehearse baseline health, pilot sequencing, abort checks and targeted rollback. Preserve recovery access and backups under the appliance owner's control. |
 
 Separate developer, reviewer and operator roles for pilot changes. Audit actor, action, asset pseudonym, artifact digest, time, decision and reason. Keep production identifiers and raw configurations out of shared fixtures and model inputs. Data owner sets retention and deletion schedules before importing operational data. Workspace and repository access should follow the project ownership and IP decision.

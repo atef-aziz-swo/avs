@@ -1,7 +1,7 @@
 # Adaptive Vulnerability Shield | Project kickoff
 Version 0.1 · Proposed baseline · 24 November 2026
 
-AVS helps operators assess NetScaler 14.1 exposure, evaluate approved compensating controls, and track temporary protection through vendor patch verification. The first milestone is an offline evidence report. The next milestone is read-only discovery against an authorized lab.
+AVS helps operators assess appliance exposure across products and versions, evaluate approved compensating controls, and track temporary protection through vendor patch verification. NetScaler ADC and Gateway 14.1 are the first validation target in a phased, multi-product design. Additional coverage is admitted through the [coverage and expansion policy](09-coverage.md). The first milestone is an offline evidence report. The next milestone is read-only discovery against an authorized lab.
 
 | Document | Kickoff question |
 |---|---|
@@ -13,5 +13,6 @@ AVS helps operators assess NetScaler 14.1 exposure, evaluate approved compensati
 | [Verification plan](06-verification.md) | What evidence supports each release decision? |
 | [Operations and pilot](07-operations.md) | How will operators monitor, recover, and retire controls? |
 | [Decision and risk registers](08-registers.md) | Who resolves the open decisions and risks? |
+| [Coverage and expansion policy](09-coverage.md) | Which products, versions and capabilities can be claimed as supported? |
 
 Source: AVS_Product_Concept.docx v0.1. The referenced repository is [mayoit/avs](https://github.com/mayoit/avs). Repository access and the Windows checkout could not be verified. This package assumes no existing layout or CI provider. Review for path conflicts before importing these files. References for kickoff verification include [NetScaler documentation](https://docs.netscaler.com/), [NVD](https://nvd.nist.gov/), and [CISA KEV](https://www.cisa.gov/known-exploited-vulnerabilities-catalog). Product thresholds, estimates, and technology choices below are proposals.
